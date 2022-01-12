@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start">
+      <ion-back-button defaultHref="/tab/robots"></ion-back-button>
+    </ion-button>
+    <ion-title>Nouveau Robot</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid style="margin-bottom:50px">
+    <ion-row>
+      <ion-col>
+        <ion-label>Nom :</ion-label>
+        <ion-item>
+          <ion-input type="text" [(ngModel)]="robot.name" placeholder="Nom du robot"></ion-input> 
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-label>Prix :</ion-label>
+        <ion-item>
+          <ion-input style="width: 80%;" [(ngModel)]="robot.price" type="number" [min]="0" placeholder="Prix"></ion-input> 
+          <span>€</span>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label>Image : </ion-label>
+        <ion-item>
+          <ion-input (keyup)="setImage()" [(ngModel)]="robot.image"></ion-input>
+          <ion-icon *ngIf="imageGood" style="color:rgb(89, 255, 47)" name="checkmark-circle-outline"></ion-icon>
+          <ion-icon *ngIf="!imageGood" style="color:rgb(255, 54, 47)" name="close-circle-outline"></ion-icon>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label>Description : </ion-label>
+        <ion-item style="height: 150px">
+          <ion-textarea style="height: 150px" [(ngModel)]="robot.description"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label>Type de service :</ion-label>
+        <ion-item>
+         <ion-input type="text" [(ngModel)]="robot.serviceType"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-label>Date de sortie :</ion-label>
+        <ion-item>
+          <ion-input type="date" [(ngModel)]="robot.releaseDate"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label>Créateur :</ion-label>
+        <ion-item>
+         <ion-input type="text" [(ngModel)]="robot.creator"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-label>Constructeur :</ion-label>
+        <ion-item>
+         <ion-input type="text" [(ngModel)]="robot.constructorName"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-button expand="full" shape="round" (click)="onAdd()">Valider</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

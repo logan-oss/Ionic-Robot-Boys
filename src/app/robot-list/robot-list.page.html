@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Liste des robots</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center">
+  <div style="background-color: rgb(226 226 226);color:black;border:3px solid rgb(138, 138, 138)">
+    <h2>Création d'un robot</h2>
+    <ion-button routerLink='/tab/robots/new'>Créer</ion-button>
+  </div>
+ <h2>Liste des robots</h2>
+ <span>Rechercher</span> <br> <br>
+ <button class="mic">
+  <ion-icon name="mic-outline"></ion-icon>
+ </button>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let robot of robots">
+        <ion-card [routerLink]="['/tab/robots',robot.id]">
+          <img style="width: 100%;height:80px" [src]="robot.image" [alt]="robot.name">
+          <ion-card-header>
+            <ion-card-subtitle [textContent]="robot.name"></ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

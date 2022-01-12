@@ -1,0 +1,10 @@
+{
+  "name": "robot-boys-ionic",
+  "integrations": {
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
+  },
+  "type": "angular"
+}
